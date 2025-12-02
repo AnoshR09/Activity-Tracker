@@ -58,4 +58,7 @@ A simple web application for tracking daily activities and career feedback with 
 
 ## Database
 
+
+=======
 Uses H2 in-memory database that resets on application restart. For production, configure a persistent database in `application.properties`.
+
