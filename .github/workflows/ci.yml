@@ -16,10 +16,14 @@ jobs:
             java-version: '17'
 
         - name: Build with Maven
-          run: mvn clean package -DskipTests
+          run: |
+            cd activity-tracker
+            mvn clean package -DskipTests
 
         - name: Build Docker image
-          run: docker build -t activity-tracker:latest .
+          run: |
+            cd activity-tracker
+            docker build -t activity-tracker:latest .
 
       #  - name: Log in to Amazon ECR
       #    uses: aws-actions/amazon-ecr-login@v1
