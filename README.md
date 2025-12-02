@@ -52,3 +52,26 @@ It demonstrates an end-to-end DevOps pipeline including:
 ### ✔ Repository & Documentation
 - Updated README and code structure to reflect new components
 - Committed all Day 3 changes to GitHub
+
+## Day 4 Progress — DevOps Transformation Challenge
+
+✅ Key Deliverables
+
+- Refactored Terraform codebase into reusable modules (VPC, Subnets, Route Tables, Security Groups, EC2)
+
+- Enforced IaC hygiene using terraform fmt and terraform validate
+
+- Implemented CI workflow in GitHub Actions to automate Terraform checks and Docker image build
+
+- Triggered and verified workflow run via git push
+
+- Validated local container build using Dockerfile in the repository
+
+📁 Highlights
+modules/ (VPC, subnets, route tables, SG, EC2)
+.github/workflows/ci.yml
+Dockerfile
+
+🎯 Outcome
+
+Improved scalability, reusability, and deployment readiness through modular IaC and automated CI execution.
