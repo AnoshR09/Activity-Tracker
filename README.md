@@ -1,64 +1,54 @@
-# Activity Tracker Web App
+# 🚀 End-to-End DevOps Project: CI/CD + Terraform + AWS + Docker + Kubernetes
 
-A simple web application for tracking daily activities and career feedback with an intuitive UI.
+## 📌 Overview
+This project is part of my **45-Day DevOps Transformation Challenge**.  
+It demonstrates an end-to-end DevOps pipeline including:
 
-## Features
+- Infrastructure provisioning using **Terraform**  
+- Containerization using **Docker**  
+- CI/CD using **GitHub Actions / Jenkins**  
+- Deployment on **AWS (EC2/EKS)**  
+- Monitoring with **Prometheus + Grafana**  
+- Version-controlled, modular, production-style DevOps workflows  
 
-- **Activity Management**: Create, view, and delete daily activities with status tracking
-- **Career Feedback**: Record and monitor career feedback with priority levels
-- **Intuitive UI**: Modern, responsive design with tabbed interface
-- **REST API**: Spring Boot backend with H2 in-memory database
+---
 
-## Tech Stack
+### Completed:
+## 🧱 Terraform Infrastructure (Day 1–3)
+- [x] Terraform project initialized  
+- [x] VPC creation  
+- [x] Subnets creation  
+- [x] Internet Gateway 
 
-- **Backend**: Spring Boot 3.2.0, Spring Data JPA, H2 Database
-- **Frontend**: HTML5, CSS3, JavaScript (Vanilla)
-- **Build**: Maven
-- **Container**: Docker
+(Day 2)
+### Completed:
+## 🧱 Terraform Infrastructure
+- [x] Route Tables
+- [x] Associated Subnets with route table  
+- [x] Security Groups
 
-## Quick Start
+## 🐳 Docker
+- [x] Selected sample application  
+- [x] Dockerfile written  
+- [x] Container built and tested locally
 
-### Local Development
+## 📅 Day 3 Progress — DevOps Transformation Challenge
 
-1. **Run with Maven**:
-   ```bash
-   mvn spring-boot:run
-   ```
+### ✔ CI Pipeline (GitHub Actions)
+- Implemented a CI workflow under `.github/workflows/ci.yml`
+- Automated Docker image build on every push to `main`
+- Added basic workflow structure for future tests and artifact handling
 
-2. **Access the application**:
-   - Web UI: http://localhost:8080
-   - H2 Console: http://localhost:8080/h2-console
+### ✔ AWS ECR Integration
+- Created an Amazon ECR repository for storing application container images
+- Successfully authenticated and pushed the Docker image to ECR
+- Prepared the image for deployment in upcoming Terraform workflows
 
-### Docker
+### ✔ Terraform Infrastructure Enhancements
+- Added IAM Role configuration for EC2 instance access (SSM, CloudWatch, ECR read access)
+- Integrated IAM role setup into Terraform module structure
+- Updated `main.tf` and supporting files accordingly
 
-1. **Build and run**:
-   ```bash
-   docker build -t activity-tracker .
-   docker run -p 8080:8080 activity-tracker
-   ```
-
-## API Endpoints
-
-### Activities
-- `GET /api/activities` - Get all activities
-- `POST /api/activities` - Create new activity
-- `PUT /api/activities/{id}` - Update activity
-- `DELETE /api/activities/{id}` - Delete activity
-
-### Feedback
-- `GET /api/feedback` - Get all feedback
-- `POST /api/feedback` - Create new feedback
-- `DELETE /api/feedback/{id}` - Delete feedback
-
-## Usage
-
-1. **Activities Tab**: Track daily tasks with status (Pending, In Progress, Completed)
-2. **Career Feedback Tab**: Record feedback by category with priority levels
-3. **Real-time Updates**: Changes are immediately reflected in the UI
-
-## Database
-
-
-=======
-Uses H2 in-memory database that resets on application restart. For production, configure a persistent database in `application.properties`.
-
+### ✔ Repository & Documentation
+- Updated README and code structure to reflect new components
+- Committed all Day 3 changes to GitHub
