@@ -28,3 +28,9 @@ variable "s3_bucket_name"{
     type = string
     default = "infra-project-bucket-1234567890"
 }
+
+variable "infra_project_key" {
+    description = "Key pair name for EC2 instance"
+    type        = string
+    default     = "infra_project_key"
+}

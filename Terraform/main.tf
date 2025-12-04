@@ -84,22 +84,22 @@ resource "tls_private_key" "ec2_sshkey" {
     rsa_bits  = 4096
   
 }
-resource "aws_key_pair" "infra_key" {
-    key_name   = "infra_key"  # Replace with your desired key pair name
+resource "aws_key_pair" "infra_project_key" {
+    key_name   = "infra_project_key"  # Replace with your desired key pair name
     public_key = tls_private_key.ec2_sshkey.public_key_openssh
 }
 
 resource "local_file" "ssh_private_key" {
     content  = tls_private_key.ec2_sshkey.private_key_pem
-    filename = "C:\\Users\\anosh\\Downloads\\infra_key.pem"
+    filename = "C:\\Users\\anosh\\Downloads\\infra_project_key.pem"
     file_permission = "0400"
 }
 
 resource "aws_instance" "infra-project" {
-    ami           = "ami-0ecb62995f68bb549"  # Ubuntu Server 20.04 LTS (HVM), SSD Volume Type in us-east-1
-    instance_type = "t2.micro"
+    ami           = "ami-0fa91bc90632c73c9"  # Ubuntu Server 24.04 LTS (HVM), SSD Volume Type in eu-north-1
+    instance_type = "t3.micro"
     subnet_id     = aws_subnet.PublicSubnet.id
-    key_name    = aws_key_pair.infra_key.key_name
+    key_name    = aws_key_pair.infra_project_key.key_name
 
     tags = {
         Name = var.instance_name # Use the instance_name variable
@@ -110,8 +110,26 @@ resource "aws_instance" "infra-project" {
   
     vpc_security_group_ids = [aws_security_group.mySG.id]
 }
+
+resource "aws_instance" "infra-project-second-instance" {
+    ami           = "ami-0fa91bc90632c73c9"  # Ubuntu Server 24.04 LTS (HVM), SSD Volume Type in eu-north-1
+    instance_type = "t3.micro"
+    subnet_id     = aws_subnet.PublicSubnet.id
+    key_name    = aws_key_pair.infra_project_key.key_name
+
+    tags = {
+        Name = "Infra-Project-Second-Instance" # Use the instance_name variable
+    }
+    # Reference the IAM instance profile from iam.tf
+    iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
+  
+    vpc_security_group_ids = [aws_security_group.mySG.id]
+    # install docker.sh script
+    user_data = file("install_docker.sh")
+  
+}
 resource "aws_s3_bucket" "infra_bucket" {
-    bucket = "infra-project-bucket-1234567890" # Replace with a unique bucket name
+    bucket = "infra-project-bucket-12345678910" # Replace with a unique bucket name
     
     tags = {
         Name        = var.s3_bucket_name

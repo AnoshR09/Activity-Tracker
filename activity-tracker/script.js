@@ -25,26 +25,46 @@ document.getElementById('activityForm').addEventListener('submit', async (e) => 
         status: document.getElementById('activityStatus').value
     };
     
+    console.log('Submitting activity:', activity);
+    
     try {
-        await fetch(`${API_BASE}/activities`, {
+        const response = await fetch(`${API_BASE}/activities`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(activity)
         });
         
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
+        console.log('Activity created successfully');
         document.getElementById('activityForm').reset();
         loadActivities();
     } catch (error) {
         console.error('Error creating activity:', error);
+        alert('Failed to create activity. Check console for details.');
     }
 });
 
 async function loadActivities() {
     try {
+        console.log('Loading activities from:', `${API_BASE}/activities`);
         const response = await fetch(`${API_BASE}/activities`);
+        
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        
         const activities = await response.json();
+        console.log('Loaded activities:', activities);
         
         const container = document.getElementById('activitiesList');
+        if (activities.length === 0) {
+            container.innerHTML = '<p>No activities found. Add one above!</p>';
+            return;
+        }
+        
         container.innerHTML = activities.map(activity => `
             <div class="item">
                 <div class="item-header">
@@ -64,6 +84,7 @@ async function loadActivities() {
         `).join('');
     } catch (error) {
         console.error('Error loading activities:', error);
+        document.getElementById('activitiesList').innerHTML = '<p>Error loading activities. Is the server running?</p>';
     }
 }
 
