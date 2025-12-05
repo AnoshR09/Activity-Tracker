@@ -75,3 +75,20 @@ Dockerfile
 🎯 Outcome
 
 Improved scalability, reusability, and deployment readiness through modular IaC and automated CI execution.
+
+Day 5 — DevOps Transformation Challenge
+✅ Key Deliverables
+
+- Migrated Terraform state to remote backend using Amazon S3 with state locking via DynamoDB
+
+- Provisioned a second Amazon EC2 instance to simulate redundancy
+
+- Used a consistent container image stored in Amazon Elastic Container Registry
+
+- Deployed and validated app on local Kubernetes cluster using Minikube
+
+- Added lint/format guardrails in CI pipeline with GitHub Actions, triggered via git push
+
+🎯 Outcome
+
+Achieved centralized IaC state management, redundancy simulation, container validation, and CI hygiene automation for deployment-ready workloads.
