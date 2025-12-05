@@ -76,7 +76,7 @@ Dockerfile
 
 Improved scalability, reusability, and deployment readiness through modular IaC and automated CI execution.
 
-Day 5 — DevOps Transformation Challenge
+## Day 5 — DevOps Transformation Challenge
 ✅ Key Deliverables
 
 - Migrated Terraform state to remote backend using Amazon S3 with state locking via DynamoDB
