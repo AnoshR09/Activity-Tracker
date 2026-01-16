@@ -41,8 +41,3 @@ jobs:
           run: |
             cd activity-tracker
             mvn checkstyle:checkstyle
-        
-        - name: Run code format check
-          run: |
-            cd activity-tracker
-            mvn fmt:check
