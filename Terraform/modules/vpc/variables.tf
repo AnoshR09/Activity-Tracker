@@ -1,0 +1,5 @@
+variable "vpc_name"{
+    description = "value of vpc's Name tag."
+    type = string
+    default = "myTerraformvpc"
+}
