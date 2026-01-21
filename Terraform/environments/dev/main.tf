@@ -34,17 +34,16 @@ module "s3_buckets" {
 # }
 
 # calls the iam_roles module to create IAM roles for the dev environment
- module "iam_roles" {
-     source = "../../modules/iam_roles"
- }
+#module "iam_roles" {
+#     source = "../../modules/iam_roles"
+# }
 
 module "eks" {
     source = "../../modules/eks"
 
     cluster_name     = "dev-eks-cluster"
     cluster_role_arn = aws_iam_role.eks_cluster_role.arn
-    subnet_id        = module.subnets.private_subnet_id
-  
+    subnet_ids       = module.subnets.private_subnet_ids
 }
 
 

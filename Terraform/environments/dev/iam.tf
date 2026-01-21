@@ -104,8 +104,7 @@ resource "aws_iam_role_policy_attachment" "nodegroup_cni_policy" {
     role       = aws_iam_role.eks_node_group_role.name
     policy_arn = "arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy"  
 }
-resource "aws_iam_group_policy_attachment" "nodegroup_ecr_policy" {
-    group      = aws_iam_role.eks_node_group_role.name
+resource "aws_iam_role_policy_attachment" "nodegroup_ecr_policy" {
+    role       = aws_iam_role.eks_node_group_role.name
     policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
-  
 }
