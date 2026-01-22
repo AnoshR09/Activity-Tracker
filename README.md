@@ -12,15 +12,17 @@ It demonstrates an end-to-end DevOps pipeline including:
 - Version-controlled, modular, production-style DevOps workflows  
 
 ---
+# Day 1 — DevOps Transformation Challenge
 
 ### Completed:
-## 🧱 Terraform Infrastructure (Day 1–3)
+## 🧱 Terraform Infrastructure 
 - [x] Terraform project initialized  
 - [x] VPC creation  
 - [x] Subnets creation  
 - [x] Internet Gateway 
 
-(Day 2)
+# Day 2 — DevOps Transformation Challenge
+
 ### Completed:
 ## 🧱 Terraform Infrastructure
 - [x] Route Tables
@@ -32,7 +34,7 @@ It demonstrates an end-to-end DevOps pipeline including:
 - [x] Dockerfile written  
 - [x] Container built and tested locally
 
-## 📅 Day 3 Progress — DevOps Transformation Challenge
+# Day 3 — DevOps Transformation Challenge
 
 ### ✔ CI Pipeline (GitHub Actions)
 - Implemented a CI workflow under `.github/workflows/ci.yml`
@@ -92,3 +94,44 @@ Improved scalability, reusability, and deployment readiness through modular IaC 
 🎯 Outcome
 
 Achieved centralized IaC state management, redundancy simulation, container validation, and CI hygiene automation for deployment-ready workloads.
+
+# Day 6 — DevOps Transformation Challenge
+
+## Completed
+- Implemented planned Terraform infrastructure updates.
+- Validated changes using `terraform init` and `terraform plan`.
+- Updated repository structure and documentation.
+- Pushed verified code to GitHub.
+
+## Key Focus
+- Infrastructure automation consistency
+- Git workflow discipline
+- Cloud resource integration
+
+## Next Step
+- Extend automation scope and integrate pipeline workflows.
+
+Status: ✅ Progress Maintained
+
+# DAY 7 — DevOps Transformation Challenge 
+(Deployment Pipeline Integration)
+
+## Completed
+- Provisioned AWS ECR repository using Terraform.
+- Integrated ECR output into deployment workflow.
+- Enhanced GitHub Actions pipeline to build and push Docker images automatically.
+- Configured secure AWS authentication using GitHub Secrets.
+- Validated infrastructure using Terraform init and plan.
+- Pushed updated pipeline configuration to GitHub.
+
+## Focus Area
+- Infrastructure-to-deployment automation
+- CI/CD pipeline reliability
+- Secure artifact management
+
+## Next Step
+- Integrate Kubernetes (EKS) for container orchestration.
+
+Status: ✅ Pipeline Execution Successful
+
+
