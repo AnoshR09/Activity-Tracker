@@ -46,6 +46,12 @@ module "eks" {
     subnet_ids       = module.subnets.private_subnet_ids
 }
 
+# calls the ecr module to create ECR repositories for the dev environment
+module "ecr" {
+    source = "../../modules/ecr"
+    
+}
+
 
 
 
