@@ -48,3 +48,4 @@ jobs:
             cd activity-tracker
             mvn checkstyle:checkstyle
 
+            
