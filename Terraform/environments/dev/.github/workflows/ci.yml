@@ -1,0 +1,50 @@
+name: "activity-tracker CI Pipeline"
+on: [push, pull_request]
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v3
+
+        - name: configure AWS credentials
+          uses: aws-actions/configure-aws-credentials@v4
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+            aws-region: eu-north-1  
+
+        - name: Set up JDK 17
+          uses: actions/setup-java@v3
+          with:
+            distribution: 'temurin'
+            java-version: '17'
+
+        - name: Build with Maven
+          run: |
+            cd activity-tracker
+            mvn clean package -DskipTests
+
+        - name: Build Docker image
+          run: |
+            cd activity-tracker
+            docker build -t activity-tracker:latest .
+
+        - name: tag Docker image
+          run: |
+            docker tag activity-tracker:latest 195275636360.dkr.ecr.eu-north-1.amazonaws.com/markone-activiti-tracker:latest 
+
+        - name: Log in to Amazon ECR
+          uses: aws-actions/amazon-ecr-login@v1
+
+        - name: Push Docker image to ECR
+          run: |
+            docker push 195275636360.dkr.ecr.eu-north-1.amazonaws.com/markone-activiti-tracker:latest       
+      
+        - name: Run Lint Check
+          run: |
+            cd activity-tracker
+            mvn checkstyle:checkstyle
+

@@ -38,15 +38,12 @@ module "s3_buckets" {
 #     source = "../../modules/iam_roles"
 # }
 
-
 module "eks" {
     source = "../../modules/eks"
 
     cluster_name     = "dev-eks-cluster"
     cluster_role_arn = aws_iam_role.eks_cluster_role.arn
-    node_group_name = "dev-eks-node-group"
-    node_role_arn = aws_iam_role.eks_node_group_role.arn
-    subnet_ids       = module.subnets.public_subnet_ids
+    subnet_ids       = module.subnets.private_subnet_ids
 }
 
 # calls the ecr module to create ECR repositories for the dev environment
@@ -54,6 +51,7 @@ module "ecr" {
     source = "../../modules/ecr"
     
 }
+
 
 
 

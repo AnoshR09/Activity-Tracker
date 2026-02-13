@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activity Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>📊 Activity Tracker</h1>
+            <p>Track your daily activities and career feedback</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('activities')">Activities</button>
+            <button class="tab-btn" onclick="showTab('feedback')">Career Feedback</button>
+        </div>
+
+        <!-- Activities Tab -->
+        <div id="activities" class="tab-content active">
+            <div class="form-section">
+                <h3>Add New Activity</h3>
+                <form id="activityForm">
+                    <input type="text" id="activityTitle" placeholder="Activity Title" required>
+                    <textarea id="activityDescription" placeholder="Description" rows="3"></textarea>
+                    <select id="activityStatus">
+                        <option value="pending">Pending</option>
+                        <option value="in-progress">In Progress</option>
+                        <option value="completed">Completed</option>
+                    </select>
+                    <button type="submit">Add Activity</button>
+                </form>
+            </div>
+            <div class="list-section">
+                <h3>Activities</h3>
+                <div id="activitiesList"></div>
+            </div>
+        </div>
+
+        <!-- Feedback Tab -->
+        <div id="feedback" class="tab-content">
+            <div class="form-section">
+                <h3>Add Career Feedback</h3>
+                <form id="feedbackForm">
+                    <select id="feedbackCategory">
+                        <option value="performance">Performance</option>
+                        <option value="skills">Skills</option>
+                        <option value="communication">Communication</option>
+                        <option value="leadership">Leadership</option>
+                        <option value="growth">Growth Areas</option>
+                    </select>
+                    <textarea id="feedbackContent" placeholder="Feedback details" rows="4" required></textarea>
+                    <select id="feedbackSeverity">
+                        <option value="low">Low Priority</option>
+                        <option value="medium">Medium Priority</option>
+                        <option value="high">High Priority</option>
+                        <option value="critical">Critical</option>
+                    </select>
+                    <button type="submit">Add Feedback</button>
+                </form>
+            </div>
+            <div class="list-section">
+                <h3>Feedback History</h3>
+                <div id="feedbackList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
