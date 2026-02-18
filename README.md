@@ -178,6 +178,7 @@ Deploy containerized application to Kubernetes (Amazon EKS) and validate end-to-
 
 ## Next Phase
 - Implement automated deployment pipeline to Kubernetes.
+- Rolling deployment implementation.
 - Add monitoring and logging integration.
 - Introduce rollback and deployment health validation mechanisms.
 
