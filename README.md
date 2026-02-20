@@ -1,4 +1,6 @@
 # 🚀 End-to-End DevOps Project: CI/CD + Terraform + AWS + Docker + Kubernetes
+<img width="856" height="750" alt="image" src="https://github.com/user-attachments/assets/0b50fde3-096c-4c5d-b82b-228a6637d894" />
+
 
 ## 📌 Overview
 This project is part of my **45-Day DevOps Transformation Challenge**.  
