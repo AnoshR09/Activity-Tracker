@@ -134,4 +134,51 @@ Status: ✅ Progress Maintained
 
 Status: ✅ Pipeline Execution Successful
 
+# DAY 8 — DevOps Transformation Challenge 
+## Kubernetes Deployment Execution (EKS)
+
+## Objective
+Deploy containerized application to Kubernetes (Amazon EKS) and validate end-to-end infrastructure-to-application runtime execution.
+
+---
+
+## Work Completed
+
+### EKS Infrastructure
+- Provisioned Amazon EKS cluster using Terraform.
+- Configured worker node group integrated with existing VPC and subnets.
+- Verified cluster and node readiness using `kubectl get nodes`.
+
+### Application Deployment
+- Deployed containerized application using Kubernetes Deployment manifests.
+- Configured Kubernetes Service to expose the application externally.
+- Integrated container image hosted in AWS ECR.
+
+### Runtime Validation
+- Verified pod status and node assignment.
+- Confirmed service exposure via LoadBalancer/NodePort.
+- Successfully accessed running application through external endpoint.
+
+### Version Control & Documentation
+- Updated infrastructure and deployment manifests in GitHub repository.
+- Updated project README with deployment workflow and architecture updates.
+
+---
+
+## Execution Outcome
+
+| Component | Status |
+|----------|--------|
+| EKS Cluster | ✅ Running |
+| Worker Nodes | ✅ Ready |
+| Application Deployment | ✅ Successful |
+| Service Exposure | ✅ Active |
+| Application Accessibility | ✅ Verified |
+| Repository Updates | ✅ Completed |
+
+## Next Phase
+- Implement automated deployment pipeline to Kubernetes.
+- Rolling deployment implementation.
+- Add monitoring and logging integration.
+- Introduce rollback and deployment health validation mechanisms.
 
