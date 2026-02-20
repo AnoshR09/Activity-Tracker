@@ -1,27 +1,28 @@
-FROM openjdk:21-jdk-slim
+FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-COPY pom.xml .
-COPY *.java .
-COPY *.properties .
-COPY *.html .
-COPY *.css .
-COPY *.js .
-
 # Install Maven
-RUN apt-get update && apt-get install -y maven
+RUN apt-get update && apt-get install -y maven && rm -rf /var/lib/apt/lists/*
 
-# Build the application
-RUN mvn clean package -DskipTests
+# Copy pom.xml first
+COPY pom.xml .
 
-# Copy static files to resources
-RUN mkdir -p src/main/resources/static && \
-    cp *.html *.css *.js src/main/resources/static/
+# Create proper directory structure
+RUN mkdir -p src/main/java/com/tracker src/main/resources/static
 
-# Rebuild with static files
+# Copy and organize files
+COPY *.java ./
+COPY *.properties ./
+COPY *.html *.css *.js ./
+
+# Move files to correct Maven structure
+RUN mv *.java src/main/java/com/tracker/ && \
+    mv *.properties src/main/resources/ && \
+    mv *.html *.css *.js src/main/resources/static/
+
+# Build application
 RUN mvn clean package -DskipTests
 
 EXPOSE 8080
-
 CMD ["java", "-jar", "target/activity-tracker-1.0.0.jar"]
