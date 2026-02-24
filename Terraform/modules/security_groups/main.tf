@@ -34,3 +34,12 @@ resource "aws_security_group_rule" "allow_all_outbound" {
     cidr_blocks = ["0.0.0.0/0"]
     security_group_id = aws_security_group.mySG.id  
 }
+resource "aws_security_group_rule" "allow_nodeport" {
+    type = "ingress"
+    from_port = 30000
+    to_port = 32767
+    protocol = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+    security_group_id = aws_security_group.mySG.id
+}
+

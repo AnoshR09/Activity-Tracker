@@ -9,6 +9,11 @@ spec:                                                   # specification of the d
   selector:                                             # label selector for pods     
     matchLabels:                                        # specifies the labels to match                                        
       app: activity-tracker                             # label key-value pair   
+  strategy:                                             # deployment strategy
+    type: RollingUpdate
+    rollingUpdate:                                      # parameters for rolling update strategy
+      maxUnavailable: 1
+      maxSurge: 1
   template:                                             # pod template
     metadata:                                           # metadata about the pod  
       labels:                                           # labels for the pod
@@ -16,19 +21,21 @@ spec:                                                   # specification of the d
     spec:                                                            
       containers:                                       # list of containers in the pod                                                                                            
       - name: activity-tracker-container                # name of the container
-        image: 195275636360.dkr.ecr.us-east-1.amazonaws.com/mark-two-acrivity-tracker:latest  # your image name
+        image: 195275636360.dkr.ecr.eu-north-1.amazonaws.com/markone-activiti-tracker:latest  # your image name
+        imagePullPolicy: Always
         ports:                                          # ports to be exposed by the container
         - containerPort: 8080                           # port that the container will listen on
+        resources:
+          requests:
+            memory: "128Mi"
+            cpu: "100m"
+          limits:
+            memory: "256Mi"
+            cpu: "200m"
         
         
         env:
-        - name: SPRING_DATASOURCE_URL
-          value: jdbc:mysql://mysql-service:3306/activity_tracker
-        - name: SPRING_DATASOURCE_USERNAME
-          value: root
-        - name: SPRING_DATASOURCE_PASSWORD
-          value: root
         - name: SPRING_JPA_HIBERNATE_DDL_AUTO
-          value: update
+          value: create-drop
         - name: SPRING_JPA_SHOW_SQL
           value: "true"

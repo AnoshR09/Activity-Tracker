@@ -5,7 +5,9 @@ metadata:                         # metadata about the object
 spec:                             # specification of the desired behavior of the service
   selector:                       # specifies which pods the service should route traffic to
     app: activity-tracker         # matches the label app: activity-tracker   
-  ports:                          # specifies the ports that the service will expose
+  ports:
+                                  # specifies the ports that the service will expose
     - protocol: TCP               # protocol used by the service
       port: 80                    # port that the service will listen on
       targetPort: 8080            # port on the pod that the service will forward traffic to
+  type: LoadBalancer                  # type of service, LoadBalancer creates an AWS ELB

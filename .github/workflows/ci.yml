@@ -41,7 +41,12 @@ jobs:
 
         - name: Push Docker image to ECR
           run: |
-            docker push 195275636360.dkr.ecr.eu-north-1.amazonaws.com/markone-activiti-tracker:latest       
+            docker push 195275636360.dkr.ecr.eu-north-1.amazonaws.com/markone-activiti-tracker:latest 
+            
+        - name: Apply Kubernetes manifests
+          run: |
+            kubectl apply -f kubernetes-manifests/deployment.yml
+            kubectl apply -f kubernetes-manifests/service.yml    
       
         - name: Run Lint Check
           run: |
