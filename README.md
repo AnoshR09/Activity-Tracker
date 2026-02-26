@@ -184,3 +184,59 @@ Deploy containerized application to Kubernetes (Amazon EKS) and validate end-to-
 - Add monitoring and logging integration.
 - Introduce rollback and deployment health validation mechanisms.
 
+# DAY 9 — Deployment Stability & Rollback Validation
+
+## Objective
+Enhance Kubernetes deployment reliability by implementing rolling updates, version upgrades, and rollback validation to simulate real-world production release workflows.
+
+---
+
+## Work Completed
+
+### Rolling Update Strategy
+- Configured Kubernetes Deployment strategy to use RollingUpdate.
+- Ensured zero-downtime upgrade capability with controlled pod replacement.
+- Validated deployment configuration using `kubectl describe deployment`.
+
+### Version Upgrade Simulation
+- Built and pushed new Docker image version (v2) to AWS ECR.
+- Updated Kubernetes deployment image to new version.
+- Monitored rollout status to confirm successful upgrade.
+
+### Rollback Execution
+- Performed controlled rollback using `kubectl rollout undo`.
+- Verified deployment history and revision tracking.
+- Confirmed application reverted to previous stable version.
+
+---
+
+## Execution Validation
+
+| Component | Status |
+|-----------|--------|
+| Rolling Update Configured | ✅ |
+| New Version Deployed | ✅ |
+| Rollout Status Verified | ✅ |
+| Rollback Executed Successfully | ✅ |
+| Deployment History Confirmed | ✅ |
+| Repository Updated | ✅ |
+
+---
+
+## Skills Strengthened
+- Kubernetes Deployment Strategies
+- Versioned Container Release Management
+- Zero-Downtime Deployment Handling
+- Rollback & Failure Recovery Operations
+- Release Lifecycle Validation
+
+---
+
+## Engineering Outcome
+Deployment process now supports safe version upgrades and controlled rollback, aligning with production-grade DevOps release standards.
+
+---
+
+Status: **Operational Stability Achieved**
+Execution Mode: **Production-Ready Release Workflow**
+
