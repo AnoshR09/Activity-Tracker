@@ -41,7 +41,7 @@ jobs:
 
         - name: Push Docker image to ECR
           run: |
-            docker push 195275636360.dkr.ecr.eu-north-1.amazonaws.com/markone-activiti-tracker:latest 
+            docker push 195275636360.dkr.ecr.eu-north-1.amazonaws.com/markone-activiti-tracker:latestv1.2.0
             
         - name: Apply Kubernetes manifests
           run: |
