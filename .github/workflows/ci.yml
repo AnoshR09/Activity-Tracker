@@ -30,11 +30,11 @@ jobs:
         - name: Build Docker image
           run: |
             cd activity-tracker
-            docker build -t activity-tracker:latest .
+            docker build -t activity-tracker:latestv1.2.0 .
 
         - name: tag Docker image
           run: |
-            docker tag activity-tracker:latest 195275636360.dkr.ecr.eu-north-1.amazonaws.com/markone-activiti-tracker:latest 
+            docker tag activity-tracker:latestv1.2.0 195275636360.dkr.ecr.eu-north-1.amazonaws.com/markone-activiti-tracker:latestv1.2.0 
 
         - name: Log in to Amazon ECR
           uses: aws-actions/amazon-ecr-login@v1
