@@ -45,6 +45,7 @@ jobs:
             
         - name: Apply Kubernetes manifests
           run: |
+            aws eks update-kubeconfig --region eu-north-1 --name dev-eks-cluster
             kubectl apply -f kubernetes-manifests/deployment.yml
             kubectl apply -f kubernetes-manifests/service.yml    
       
